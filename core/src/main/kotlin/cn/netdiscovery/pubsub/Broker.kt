@@ -67,6 +67,14 @@ open class Broker(
         subscriberJobs[subscriber] = getJobs(subscriber) + newJob
     }
 
+    inline fun <reified T : Any> subscribe(
+        subscriber: Any,
+        scope: CoroutineScope,
+        dispatcher: CoroutineContext = Dispatchers.Main,
+        emitRetained: Boolean = false,
+        noinline onEvent: suspend (T) -> Unit
+    ) = subscribe(subscriber, T::class, scope, dispatcher, emitRetained, onEvent)
+
     override fun unsubscribe(subscriber: Any) {
         getJobs(subscriber).forEach { job -> job.cancel() }
         subscriberJobs.remove(subscriber)
