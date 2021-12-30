@@ -5,3 +5,21 @@
 
 使用 Kotlin Coroutines 实现的 Local Pub/Sub、Event Bus、Message Bus
 
+## 下载
+
+将它添加到项目的 root build.gradle 中：
+
+```groovy
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+然后在项目或者在 module 中添加：
+
+```groovy
+implementation 'com.github.fengzhizi715.PubSub:core:v1.0.0'
+```
