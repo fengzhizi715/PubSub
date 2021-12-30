@@ -91,4 +91,12 @@ open class Broker(
 
     private suspend fun FlowCollector<Any>.emitRetainedEvents() =
         emitAll(retainedEvents.values.asFlow())
+
+    fun unsubscribeAll()  {
+        subscriberJobs.forEach { (subscriber, _) ->
+            getJobs(subscriber).forEach { job -> job.cancel() }
+        }
+
+        subscriberJobs.clear()
+    }
 }
