@@ -25,5 +25,8 @@ implementation 'com.github.fengzhizi715.PubSub:core:v1.0.0'
 ```
 
 ## Feature
+
 * 支持事件发布和订阅
 * 支持 Sticky Event/Retained Event
+* 线程安全，可以在任何线程中发布/订阅事件
+* 支持延时发送事件
