@@ -23,3 +23,7 @@
 ```groovy
 implementation 'com.github.fengzhizi715.PubSub:core:v1.0.0'
 ```
+
+## Feature
+* 支持事件发布和订阅
+* 支持 Sticky Event/Retained Event
