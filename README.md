@@ -31,3 +31,13 @@ implementation 'com.github.fengzhizi715.PubSub:core:v1.0.0'
 * 线程安全，可以在任何线程中发布/订阅事件，支持使用指定的线程进行事件订阅
 * 支持延时发送事件
 * 支持事件发送的异常处理
+
+## Usage
+
+1. 定义 EventBus
+
+```kotlin
+val eventBus: Broker by lazy {
+    Broker(Dispatchers.IO)
+}
+```
