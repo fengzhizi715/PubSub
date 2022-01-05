@@ -36,8 +36,32 @@ implementation 'com.github.fengzhizi715.PubSub:core:v1.0.0'
 
 1. 定义 EventBus
 
+可以定义全局的 EventBus 或者定义多个 EventBus
+
 ```kotlin
 val eventBus: Broker by lazy {
     Broker(Dispatchers.IO)
+}
+```
+
+2. 定义事件
+
+```kotlin
+class XXXEvent
+```
+
+3. 发送事件
+
+```kotlin
+eventBus.publish(XXXEvent())
+```
+
+4. 订阅事件
+
+```kotlin
+runBlocking{
+    eventBus.subscribe<XXXEvent>("subscriber name", this, Dispatchers.IO) {
+        ......
+    }
 }
 ```
