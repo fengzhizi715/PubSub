@@ -56,11 +56,35 @@ class XXXEvent
 eventBus.publish(XXXEvent())
 ```
 
+发送 Sticky Event/Retained Event
+
+```kotlin
+eventBus.publish(XXXEvent(),true)
+```
+
+延时发送事件
+
+```kotlin
+GlobalScope.launch {
+    eventBus.publish(XXXEvent(),false,2000)
+}
+```
+
 4. 订阅事件
 
 ```kotlin
 runBlocking{
     eventBus.subscribe<XXXEvent>("subscriber name", this, Dispatchers.IO) {
+        ......
+    }
+}
+```
+
+订阅 Sticky Event/Retained Event
+
+```kotlin
+runBlocking{
+    eventBus.subscribe<XXXEvent>("subscriber name", this, Dispatchers.IO,true) {
         ......
     }
 }
