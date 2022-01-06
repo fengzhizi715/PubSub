@@ -101,3 +101,14 @@ broker.unsubscribe("subscriber name")
 ```kotlin
 broker.unsubscribeAll()
 ```
+
+6. 异常处理
+
+```kotlin
+runBlocking {
+    eventBus.subscribe<ExceptionEvent>("subscriber name", this, Dispatchers.IO, true) { event ->
+        event.error.printStackTrace()
+        ......
+    }
+}
+```
