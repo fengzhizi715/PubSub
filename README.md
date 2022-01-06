@@ -89,3 +89,15 @@ runBlocking{
     }
 }
 ```
+
+5. 取消订阅
+
+```kotlin
+broker.unsubscribe("subscriber name")
+```
+
+取消所有的订阅
+
+```kotlin
+broker.unsubscribeAll()
+```
