@@ -106,7 +106,7 @@ broker.unsubscribeAll()
 
 ```kotlin
 runBlocking {
-    eventBus.subscribe<ExceptionEvent>("subscriber name", this, Dispatchers.IO, true) { event ->
+    eventBus.subscribe<ExceptionEvent>("subscriber name", this, Dispatchers.IO) { event ->
         event.error.printStackTrace()
         ......
     }
