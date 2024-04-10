@@ -21,7 +21,7 @@
 然后在项目或者在 module 中添加：
 
 ```groovy
-implementation 'com.github.fengzhizi715.PubSub:core:v1.0.0'
+implementation 'com.github.fengzhizi715.PubSub:core:v1.1.0'
 ```
 
 ## Feature
